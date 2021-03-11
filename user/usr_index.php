@@ -8,7 +8,7 @@
     <title>Weclome to Seminar Library, CSE, University of Rajshahi</title>
     <style media="screen">
       <?php
-        include './css/mystyle.css';
+        include '../css/register/register_page.css';
       ?>
     </style>
   </head>
@@ -16,8 +16,8 @@
 
     <?php
       $servername = "localhost";
-      $username = "anonymous";
-      $password = "123";
+      $username = "register";
+      $password = "12345";
 
       try {
         $conn = new PDO("mysql:host=$servername;dbname=book-library-db", $username, $password);
@@ -49,7 +49,7 @@
         <form action="./search/search_result_page.php" method="post">
           <input type="text" placeholder="Search by book or category.." name="search">
           <button class="src" type="submit"><i class="fa fa-search"></i></button>
-          <button class="login" type="submit" formaction="./login/login_page.php">Log in/Sign up</button>
+          <button class="login" type="submit" formaction="../index.php">Log out</button>
         </form>
       </div>
     </div>
@@ -71,39 +71,42 @@
         <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
         <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
         <h3>Resize the browser window to see the effect.</h3> -->
-        <table border="1">
-          <tr>
-            <!-- <th>ID</th> -->
-            <th>Book Name</th>
-            <th>writer</th>
-            <th>Publication</th>
-            <th>Edition</th>
-            <th>Category</th>
-            <th>Availability</th>
-            <th>Location</th>
-            <!-- <th>For Eng. Program</th> -->
-            <!-- <th>For Semester</th> -->
-            <!-- <th>price</th> -->
-          </tr>
 
-          <?php
+        <?php
+
+          echo "<table border='1'>";
+            echo "<tr>";
+              // <!-- <th>ID</th> -->
+              echo "<th>Book Name</th>";
+              echo "<th>writer</th>";
+              echo "<th>Publication</th>";
+              echo "<th>Edition</th>";
+              echo "<th>Category</th>";
+              echo "<th>Availability</th>";
+              echo "<th>Location</th>";
+              // <!-- <th>For Eng. Program</th> -->
+              // <!-- <th>For Semester</th> -->
+              // <!-- <th>price</th> -->
+            echo "</tr>";
+
           foreach ($result as $row) {
             echo "<tr>";
-            // echo "<td>$row[bookID]</td>";
-            echo "<td>$row[bookName]</td>";
-            echo "<td>$row[bookWriter]</td>";
-            echo "<td>$row[bookPublication]</td>";
-            echo "<td>$row[bookEdition]</td>";
-            echo "<td>$row[bookCategory]</td>";
-            echo "<td>$row[bookAvailability]</td>";
-            echo "<td>$row[bookLocation]</td>";
-            // echo "<td>$row[bookForYear]</td>";
-            // echo "<td>$row[bookForSemester]</td>";
-            // echo "<td>$row[bookPrice]</td>";
+              // echo "<td>$row[bookID]</td>";
+              echo "<td>$row[bookName]</td>";
+              echo "<td>$row[bookWriter]</td>";
+              echo "<td>$row[bookPublication]</td>";
+              echo "<td>$row[bookEdition]</td>";
+              echo "<td>$row[bookCategory]</td>";
+              echo "<td>$row[bookAvailability]</td>";
+              echo "<td>$row[bookLocation]</td>";
+              // echo "<td>$row[bookForYear]</td>";
+              // echo "<td>$row[bookForSemester]</td>";
+              // echo "<td>$row[bookPrice]</td>";
             echo "</tr>";
           }
-          ?>
-        </table>
+          echo "</table>";
+        ?>
+
       </div>
     </div>
 

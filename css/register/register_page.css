@@ -5,7 +5,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.header{
+.header {
   text-align: center;
 }
 
@@ -28,10 +28,15 @@ body {
   font-size: 17px;
 }
 
+/* .dropbtn:hover {
+  background-color: #555;
+} */
+
 .topnav a:hover {
   background-color: #555;
   color: white;
 }
+
 
 .topnav .search-container {
   float: none;
@@ -60,10 +65,6 @@ body {
   background-color: #555;
   color: white;
 }
-
-/* .login {
-  float: right;
-} */
 
 .topnav .search-container .login {
   float: right;
@@ -127,6 +128,7 @@ div.content {
   clear: both;
   display: table;
 }
+
 
 .footer {
   text-align: center;
