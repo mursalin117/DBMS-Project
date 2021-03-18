@@ -8,7 +8,7 @@
     <title>Weclome to Seminar Library, CSE, University of Rajshahi</title>
     <style media="screen">
       <?php
-        include '../css/register/register_page.css';
+        include '../../css/photo_style.css';
       ?>
     </style>
   </head>
@@ -16,8 +16,8 @@
 
     <?php
       $servername = "localhost";
-      $username = "register";
-      $password = "12345";
+      $username = "anonymous";
+      $password = "123";
 
       try {
         $conn = new PDO("mysql:host=$servername;dbname=book-library-db", $username, $password);
@@ -25,7 +25,7 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully!<br>";
 
-        $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation FROM book");
+        // $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation FROM book");
         $resultCat = $conn->query("SELECT bookCategory FROM book GROUP BY bookCategory");
         $conn = null;
 
@@ -41,18 +41,15 @@
     </div>
 
     <div class="topnav">
-      <a class="home" href="register_page.php">Home</a>
-      <a href="./insert/insert_page.php">Insert</a>
-      <a href="./update/update_page.php">Update</a>
-      <a href="./delete/delete_page.php">Delete</a>
-      <a href="./yearly_book/yearly_book_page.php">Yearly Book</a>
-      <a href="./photo/gallery_page.php">Gallery</a>
+      <a class="home" href="../register_page.php">Home</a>
+      <a href="../yearly_book/yearly_book_page.php">Yearly Book</a>
+      <a href="gallery_page.php">Gallery</a>
       <a href="https://www.google.com/maps/place/Computer+Science+and+Technology+Department/@24.3691865,88.6368115,19z/data=!4m13!1m7!3m6!1s0x39fbefa96a38d031:0x10f93a950ed6f410!2sRajshahi!3b1!8m2!3d24.3745146!4d88.604166!3m4!1s0x39fbf1ae9c3737c7:0xac8aa9d7a4eb8db0!8m2!3d24.3695806!4d88.6372293">Map</a>
       <div class="search-container">
-        <form action="./search/search_result_page.php" method="post">
+        <form action="../search/search_result_page.php" method="post">
           <input type="text" placeholder="Search by book or category.." name="search">
           <button class="src" type="submit"><i class="fa fa-search"></i></button>
-          <button class="login" type="submit" formaction="../index.php">Log out</button>
+          <button class="login" type="submit" formaction="../../index.php">Log out</button>
         </form>
       </div>
     </div>
@@ -60,7 +57,7 @@
     <div class="middle">
       <div class="sidebar">
         <p class="showing">Book Category</p>
-        <form action="./category/category_result_page.php" method="post">
+        <form action="../category/category_result_page.php" method="post">
           <?php
             foreach ($resultCat as $row) {
               // echo "<input type='submit' name='button23' value=$row[bookCategory]>";
@@ -70,46 +67,14 @@
         </form>
       </div>
       <div class="content">
-        <!-- <h2>Responsive Sidebar Example</h2>
+        <h2>Responsive Sidebar Example</h2>
         <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
         <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
-        <h3>Resize the browser window to see the effect.</h3> -->
-
-        <?php
-
-          echo "<table border='1'>";
-            echo "<tr>";
-              // <!-- <th>ID</th> -->
-              echo "<th>Book Name</th>";
-              echo "<th>writer</th>";
-              echo "<th>Publication</th>";
-              echo "<th>Edition</th>";
-              echo "<th>Category</th>";
-              echo "<th>Availability</th>";
-              echo "<th>Location</th>";
-              // <!-- <th>For Eng. Program</th> -->
-              // <!-- <th>For Semester</th> -->
-              // <!-- <th>price</th> -->
-            echo "</tr>";
-
-          foreach ($result as $row) {
-            echo "<tr>";
-              // echo "<td>$row[bookID]</td>";
-              echo "<td>$row[bookName]</td>";
-              echo "<td>$row[bookWriter]</td>";
-              echo "<td>$row[bookPublication]</td>";
-              echo "<td>$row[bookEdition]</td>";
-              echo "<td>$row[bookCategory]</td>";
-              echo "<td>$row[bookAvailability]</td>";
-              echo "<td>$row[bookLocation]</td>";
-              // echo "<td>$row[bookForYear]</td>";
-              // echo "<td>$row[bookForSemester]</td>";
-              // echo "<td>$row[bookPrice]</td>";
-            echo "</tr>";
-          }
-          echo "</table>";
-        ?>
-
+        <h3>Resize the browser window to see the effect.</h3>
+        <img src="../photo/pexels-janko-ferlic-590493.jpg" alt="book" width="500px" height="300px">
+        <img src="../photo/pexels-josh-sorenson-990432.jpg" alt="book" width="500px" height="300px">
+        <img src="../photo/pexels-pixabay-256541.jpg" alt="book" width="500px" height="300px">
+        <img src="../photo/pexels-wendy-van-zyl-1112048.jpg" alt="book" width="500px" height="300px">
       </div>
     </div>
 

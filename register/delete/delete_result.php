@@ -34,8 +34,14 @@
         else {
           $value = $conn->query("SELECT bookID FROM book WHERE bookID = '$bookID' and bookName = '$bookName'")->rowCount();
           if ($value > 0){
-            $value = "found";
             $conn->query("DELETE FROM book WHERE bookID = '$bookID' AND bookName = '$bookName'");
+            $result = $conn->query("SELECT bookID FROM book WHERE bookID = '$bookID'");
+            if ($result->rowCount() > 0) {
+              $value = "not deleted";
+            }
+            else {
+              $value = "deleted";
+            }
           }
           else {
             $value = "not found";
@@ -58,14 +64,14 @@
           echo "<p>Book ID and Book Name not found.</p>";
           echo "<p>Please <a href='delete_page.php'>try again</a> or <a href='../register_page.php'>back to home page</a></p>";
         }
-        elseif ($value == "found") {
+        elseif ($value == "deleted") {
           echo "<h2>Successfully</h2>";
           echo "<p>The row has been deleted.</p>";
           echo "<p>Please go back to <a href='../register_page.php'>home page</a></p>";
         }
         else {
           echo "<h2>Sorry,</h2>";
-          echo "<p>Something went wrong.</p>";
+          echo "<p>Something went wrong. Nothing deleted.</p>";
           echo "<p>Please <a href='delete_page.php'>try again</a> or <a href='../register_page.php'>back to home page</a></p>";
         }
       ?>

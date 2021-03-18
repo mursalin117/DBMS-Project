@@ -24,8 +24,9 @@
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully!<br>";
+        $cmd = "SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation FROM book";
 
-        $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation FROM book");
+        $result = $conn->query($cmd);
         $resultCat = $conn->query("SELECT bookCategory FROM book GROUP BY bookCategory");
         $conn = null;
 
@@ -49,7 +50,7 @@
         <form action="./search/search_result_page.php" method="post">
           <input type="text" placeholder="Search by book or category.." name="search">
           <button class="src" type="submit"><i class="fa fa-search"></i></button>
-          <button class="login" type="submit" formaction="./login/login_page.php">Log in/Sign up</button>
+          <button class="login" type="submit" formaction="./login/login_page.php">Log in / Sign up</button>
         </form>
       </div>
     </div>

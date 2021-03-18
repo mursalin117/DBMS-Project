@@ -8,7 +8,7 @@
     <title>Weclome to Seminar Library, CSE, University of Rajshahi</title>
     <style media="screen">
       <?php
-        include '../css/mystyle.css';
+        include '../../css/mystyle.css';
       ?>
     </style>
   </head>
@@ -25,61 +25,21 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully!<br>";
 
-
-        $value = $_POST['button'];
-        if ($value == "1") {
-          echo "1y1s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-I' AND bookForSemester = 'Odd'");
-        }
-        else if ($value == "2") {
-          echo "1y2s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-I' AND bookForSemester = 'Even'");
-        }
-        else if ($value == "3") {
-          echo "2y1s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-II' AND bookForSemester = 'Odd'");
-        }
-        else if ($value == "4") {
-          echo "2y2s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-II' AND bookForSemester = 'Even'");
-        }
-        else if ($value == "5") {
-          echo "3y1s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-III' AND bookForSemester = 'Odd'");
-        }
-        else if ($value == "6") {
-          echo "3y2s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-III' AND bookForSemester = 'Even'");
-        }
-        else if ($value == "7") {
-          echo "4y1s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-IV' AND bookForSemester = 'Odd'");
-        }
-        else {
-          echo "4y2s<br>";
-          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
-            FROM book
-            WHERE bookForYear = 'Part-IV' AND bookForSemester = 'Even'");
-        }
-
-        if ($result->rowCount() < 1) {
+        $value = $_POST['search'];
+        if ($value == null) {
           $result = null;
         }
+        else {
+          $result = $conn->query("SELECT bookName, bookWriter, bookPublication, bookEdition, bookCategory, bookAvailability, bookLocation
+            FROM book
+            WHERE bookCategory = '$value' OR bookName LiKE '%$value%'");
 
+          if ($result->rowCount() < 1) {
+            $result = null;
+          }
+        }
+
+        echo $value;
         $resultCat = $conn->query("SELECT bookCategory FROM book GROUP BY bookCategory");
         $conn = null;
 
@@ -95,15 +55,15 @@
     </div>
 
     <div class="topnav">
-      <a class="home" href="../index.php">Home</a>
-      <a href="yearly_book_page.php">Yearly Book</a>
+      <a class="home" href="../register_page.php">Home</a>
+      <a href="../yearly_book/yearly_book_page.php">Yearly Book</a>
       <a href="../photo/gallery_page.php">Gallery</a>
       <a href="https://www.google.com/maps/place/Computer+Science+and+Technology+Department/@24.3691865,88.6368115,19z/data=!4m13!1m7!3m6!1s0x39fbefa96a38d031:0x10f93a950ed6f410!2sRajshahi!3b1!8m2!3d24.3745146!4d88.604166!3m4!1s0x39fbf1ae9c3737c7:0xac8aa9d7a4eb8db0!8m2!3d24.3695806!4d88.6372293">Map</a>
       <div class="search-container">
-        <form action="../search/search_result_page.php" method="post">
+        <form action="search_result_page.php" method="post">
           <input type="text" placeholder="Search by book or category.." name="search">
           <button class="src" type="submit"><i class="fa fa-search"></i></button>
-          <button class="login" type="submit" formaction="/login.php">Login/Register</button>
+          <button class="login" type="submit" formaction="../../index.php">Log out</button>
         </form>
       </div>
     </div>
@@ -120,10 +80,10 @@
         </form>
       </div>
       <div class="content">
-        <h2>Responsive Sidebar Example</h2>
+        <!-- <h2>Responsive Sidebar Example</h2>
         <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
         <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
-        <h3>Resize the browser window to see the effect.</h3>
+        <h3>Resize the browser window to see the effect.</h3> -->
         <?php
         if ($result == null) {
             echo "Nothing found";

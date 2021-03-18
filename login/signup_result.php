@@ -76,7 +76,7 @@
         }
         else {
           echo "<h2>Sorry,</h2>";
-          echo "<p>Something went wrong.</p>";
+          echo "<p>Something went wrong. Nohting saved.</p>";
           echo "<p>Please <a href='signup_page.php'>sign up</a> or <a href='login_page.php'>log in</a> or <a href='../index.php'>back to home page</a></p>";
         }
       ?>
