@@ -28,8 +28,8 @@ The Admin and registered user have to log in to get all the privileges.
 * insert, update user information
 * update schedule(not done yet)
 * update location(not done yet)
-* others (all things that can be seen by the anonymous user)
+* others (all things that can be done by the anonymous user)
 
 ### The registered user can do
 * see the personal book information
-* others(all things that can be seen by the anonymous user)
+* others(all things that can be done by the anonymous user)
