@@ -1,3 +1,8 @@
+<?php
+  // Start the session
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -23,6 +28,7 @@
         $usrName = $_POST['userName'];
         $usrPass = $_POST['password'];
         // echo "$usrName and $usrPass";
+        $_SESSION['usrName'] = $usrName;
 
         if ($usrName == null || $usrPass == null) {
           $value = null;

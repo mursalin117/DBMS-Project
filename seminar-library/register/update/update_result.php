@@ -40,9 +40,9 @@
         if ($bookID == null) {
           $value = "null";
         }
-        // else if ($bookName == $bookWriter == $bookPublication == $bookEdition == $bookAvailability == $bookCategory == $bookLocation == $bookForYear == $bookForSemester == $bookPrice == null) {
-        //   $value = "not right";
-        // }
+        else if ($bookName == null && $bookWriter == null && $bookPublication == null && $bookEdition == null && $bookAvailability == null && $bookCategory == null && $bookLocation == null && $bookForYear == null && $bookForSemester == null && $bookPrice == null) {
+          $value = "not right";
+        }
         else {
           $value = $conn->query("SELECT bookID FROM book WHERE bookID = '$bookID'")->rowCount();
           if ($value < 1){
