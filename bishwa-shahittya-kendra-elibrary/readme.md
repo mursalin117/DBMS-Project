@@ -3,12 +3,18 @@
 ### This is a simple project of DBMS. The project is focus on lessen the time-consuming process of mobile library which is offered by the Bishwa Sahittya Kendra.
 
 Here we focus on three type of user.
+
  a) The registered user
+ 
  b) The Admin
+ 
  c) Anonymous user
+ 
 The Admin and registered user have to log in to get all the privileges.   
 
+
 # User's Features
+
 
 ### The anonymous user can do
 * see all the book of different kind
