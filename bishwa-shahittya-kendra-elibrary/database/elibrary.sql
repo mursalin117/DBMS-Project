@@ -239,5 +239,5 @@ ON
 TO 
 	"admin"@"localhost";
 
-
+ALTER TABLE bookInfo MODIFY COLUMN bookReturn VARCHAR(20) NOT NULL;
 

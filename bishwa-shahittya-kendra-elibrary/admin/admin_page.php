@@ -53,7 +53,7 @@
         <form action="./search/search_result_page.php" method="post">
           <input type="text" placeholder="Search by book or category.." name="search">
           <button class="src" type="submit"><i class="fa fa-search"></i></button>
-          <button class="login" type="submit" formaction="../../index.php">Log out</button>
+          <button class="login" type="submit" formaction="../index.php">Log out</button>
         </form>
       </div>
     </div>

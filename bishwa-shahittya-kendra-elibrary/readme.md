@@ -5,11 +5,11 @@
 Here we focus on three type of user.
 
  a) The registered user
- 
+
  b) The Admin
- 
+
  c) Anonymous user
- 
+
 The Admin and registered user have to log in to get all the privileges.   
 
 

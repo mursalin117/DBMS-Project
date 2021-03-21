@@ -50,6 +50,7 @@
       <a class="home" href="../usr_index.php">Home</a>
       <a href="../dashboard/dashboard_page.php">Dashboard</a>
       <a href="../photo/gallery_page.php">Gallery</a>
+      <a href="../schedule/schedule_page.php">Schedule</a>
       <a href="https://www.google.com/maps/place/Computer+Science+and+Technology+Department/@24.3691865,88.6368115,19z/data=!4m13!1m7!3m6!1s0x39fbefa96a38d031:0x10f93a950ed6f410!2sRajshahi!3b1!8m2!3d24.3745146!4d88.604166!3m4!1s0x39fbf1ae9c3737c7:0xac8aa9d7a4eb8db0!8m2!3d24.3695806!4d88.6372293">Location</a>
       <div class="search-container">
         <form action="../search/search_result_page.php" method="post">
